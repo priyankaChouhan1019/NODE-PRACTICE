@@ -1,21 +1,27 @@
 const express = require('express');
-const path = require('path');
-
 const app = express();
-const publicPath=path.join(__dirname,'public')
-app.set('view engine', 'ejs');
 
-app.get('/about', (req, res)=>{
-   res.sendFile(`${publicPath}/about.html`)
-})
+// below reqFilter accepts three parameters
+const reqFilter = (req, resp, next)=>{
+   if(!req.query.age){
+      resp.send("Please provide age")
+   } else if (req.query.age < 18){
+      resp.send("you are under age")
+   } else{
+      next();
+   }
+}
 
-app.get('/help', (req, res)=>{
-   res.sendFile(`${publicPath}/help.html`)
-})
+   app.use(reqFilter);
 
-app.get('*', (req, res)=>{
-   res.sendFile(`${publicPath}/nopage.html`)
-})
+   app.get('/', (req, resp)=>{
+      resp.send("Welcome to home page")
 
-app.listen(5000);
-// console.log("dfdsfsdfds")
+   })
+
+   app.get('/user', (req, resp)=>{
+      resp.send("Welcome to user page")
+   })
+
+   app.listen(5000)
+
