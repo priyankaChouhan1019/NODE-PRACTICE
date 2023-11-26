@@ -1,10 +1,21 @@
-//  "http"  node js ke andar server ki request or response ko handle krta hai 
-const http = require('http');
+const express = require('express');
+const path = require('path');
 
-http.createServer((req,res) =>{
-    res.write("<h2>server is on </h2>");
-    res.end();
+const app = express();
+const publicPath=path.join(__dirname,'public')
+app.set('view engine', 'ejs');
 
-}).listen(4500);
+app.get('/about', (req, res)=>{
+   res.sendFile(`${publicPath}/about.html`)
+})
 
+app.get('/help', (req, res)=>{
+   res.sendFile(`${publicPath}/help.html`)
+})
 
+app.get('*', (req, res)=>{
+   res.sendFile(`${publicPath}/nopage.html`)
+})
+
+app.listen(5000);
+// console.log("dfdsfsdfds")

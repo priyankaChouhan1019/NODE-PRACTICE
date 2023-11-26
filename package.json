@@ -1,0 +1,33 @@
+{
+  "name": "node-practice",
+  "version": "1.0.0",
+  "description": "node js practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyankaChouhan1019/NODE-PRACTICE.git"
+  },
+  "keywords": [
+    "first",
+    "node",
+    "js",
+    "learning"
+  ],
+  "author": "Priyanka chouhan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/priyankaChouhan1019/NODE-PRACTICE/issues"
+  },
+  "homepage": "https://github.com/priyankaChouhan1019/NODE-PRACTICE#readme",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "colors": "^1.4.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "path": "^0.12.7",
+    "simple-node-logger": "^21.8.12"
+  }
+}
